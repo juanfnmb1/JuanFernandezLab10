@@ -1,0 +1,51 @@
+@import "variables";
+
+@mixin my-grid {
+  body {
+    background-color: $backgroundC;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr 2fr;
+  }
+  @for $i from 1 through $count {
+    @if $i/2 == 1 or $i/2==2 or $i/2==3 or $i/2==4 or $i/2==5 {
+      .number#{$i} {
+        grid-column: $right;
+        background-color: rgb(($i * 2), $i, (($i + 10) * 8));
+        text-align: $center;
+        color: invert(rgb(($i * 3), $i, (($i + 10) * 2)));
+        border-color: $customRed;
+        border-width: 10px;
+        border-style: $borderStyle;
+      }
+    } @else {
+      .number#{$i} {
+        grid-column: $left;
+        background-color: rgb((($i + 15) * 5), $i, ($i * 3));
+        text-align: $center;
+        color: invert(rgb((($i + 10) * 4), $i, ($i * 3)));
+        border-color: $customBlue;
+        border-width: 10px;
+        border-style: $borderStyle;
+      }
+    }
+  }
+}
+@mixin sizes {
+  h1 {
+    font-size: $h1;
+  }
+  h2 {
+    font-size: $h2;
+  }
+  h3 {
+    font-size: $h3;
+  }
+  h4 {
+    font-size: $h4;
+  }
+  h5 {
+    font-size: $h5;
+  }
+}
